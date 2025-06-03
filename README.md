@@ -39,19 +39,9 @@ The Doctor Appointment App is a modern, cross-platform mobile application built 
 
 <div align="center">
 
-| Splash Screen | Login Screen | Signup Screen |
+| Login Screen | Signup Screen | Home Screen |
 |:---:|:---:|:---:|
 | ![Splash Screen](screenshots/splash_screen.png) | ![Login Screen](screenshots/login_screen.png) | ![Signup Screen](screenshots/signup_screen.png) |
-
-</div>
-
-### Patient Interface
-
-<div align="center">
-
-| Patient Dashboard | Book Appointment | Appointment History |
-|:---:|:---:|:---:|
-| ![Patient Dashboard](screenshots/patient_dashboard.png) | ![Book Appointment](screenshots/book_appointment.png) | ![Appointment History](screenshots/appointment_history.png) |
 
 </div>
 
@@ -59,7 +49,17 @@ The Doctor Appointment App is a modern, cross-platform mobile application built 
 
 <div align="center">
 
-| Doctor Dashboard | Slot Management |
+| Doctor Dashboard | Slot Management | Doctor Dashboard |
+|:---:|:---:|:---:|
+| ![Patient Dashboard](screenshots/patient_dashboard.png) | ![Book Appointment](screenshots/book_appointment.png) | ![Appointment History](screenshots/appointment_history.png) |
+
+</div>
+
+### Patient Interface
+
+<div align="center">
+
+| Patient Dashboard | Slot Management |
 |:---:|:---:|
 | ![Doctor Dashboard](screenshots/doctor_dashboard.png) | ![Slot Management](screenshots/slot_management.png) |
 
