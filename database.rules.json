@@ -1,0 +1,118 @@
+{
+  "rules": {
+    ".read": "auth != null",
+    ".write": "auth != null",
+
+    "users": {
+      "$uid": {
+        // Users can read any user profile
+        ".read": "auth != null",
+        // Users can only write to their own profile
+        ".write": "auth != null && auth.uid == $uid",
+        // Schema validation
+        ".validate": "newData.hasChildren(['name', 'email', 'role', 'createdAt'])",
+        "name": {
+          ".validate": "newData.isString() && newData.val().length > 0"
+        },
+        "email": {
+          ".validate": "newData.isString() && newData.val().matches(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,4}$/i)"
+        },
+        "role": {
+          ".validate": "newData.isString() && (newData.val() == 'doctor' || newData.val() == 'patient')"
+        },
+        "createdAt": {
+          ".validate": "newData.isNumber()"
+        },
+        "$other": {
+          ".validate": false
+        }
+      }
+    },
+
+    "slots": {
+      "$slotId": {
+        // Anyone authenticated can read slots
+        ".read": "auth != null",
+        // Only doctors can create their own slots
+        ".write": "auth != null &&
+                  ((!data.exists() && newData.child('doctorId').val() == auth.uid) ||
+                   (data.exists() && data.child('doctorId').val() == auth.uid) ||
+                   (data.exists() && data.child('isBooked').val() == false &&
+                    newData.child('isBooked').val() == true &&
+                    newData.child('patientId').val() == auth.uid))",
+        // Schema validation
+        ".validate": "newData.hasChildren(['doctorId', 'dateTime', 'durationMinutes', 'isBooked', 'createdAt'])",
+        "doctorId": {
+          ".validate": "newData.isString()"
+        },
+        "dateTime": {
+          ".validate": "newData.isNumber()"
+        },
+        "durationMinutes": {
+          ".validate": "newData.isNumber() && newData.val() > 0"
+        },
+        "isBooked": {
+          ".validate": "newData.isBoolean()"
+        },
+        "patientId": {
+          ".validate": "!newData.exists() || newData.isString()"
+        },
+        "createdAt": {
+          ".validate": "newData.isNumber()"
+        },
+        "$other": {
+          ".validate": false
+        }
+      }
+    },
+
+    "appointments": {
+      "$appointmentId": {
+        // Users can read appointments they're involved in
+        ".read": "auth != null &&
+                 (data.child('doctorId').val() == auth.uid ||
+                  data.child('patientId').val() == auth.uid)",
+        // Patients can create appointments, both can update
+        ".write": "auth != null &&
+                  ((!data.exists() && newData.child('patientId').val() == auth.uid) ||
+                   (data.exists() && (data.child('doctorId').val() == auth.uid ||
+                                     data.child('patientId').val() == auth.uid)))",
+        // Schema validation
+        ".validate": "newData.hasChildren(['slotId', 'patientId', 'doctorId', 'dateTime', 'durationMinutes', 'patientName', 'doctorName', 'status', 'createdAt'])",
+        "slotId": {
+          ".validate": "newData.isString()"
+        },
+        "patientId": {
+          ".validate": "newData.isString()"
+        },
+        "doctorId": {
+          ".validate": "newData.isString()"
+        },
+        "dateTime": {
+          ".validate": "newData.isNumber()"
+        },
+        "durationMinutes": {
+          ".validate": "newData.isNumber() && newData.val() > 0"
+        },
+        "patientName": {
+          ".validate": "newData.isString()"
+        },
+        "doctorName": {
+          ".validate": "newData.isString()"
+        },
+        "status": {
+          ".validate": "newData.isString() &&
+                       (newData.val() == 'scheduled' ||
+                        newData.val() == 'completed' ||
+                        newData.val() == 'cancelled')"
+        },
+        "createdAt": {
+          ".validate": "newData.isNumber()"
+        },
+        "$other": {
+          ".validate": false
+        }
+      }
+    }
+  }
+}
