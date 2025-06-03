@@ -5,20 +5,21 @@ A comprehensive Flutter application for managing doctor appointments with Fireba
 ## Table of Contents
 
 1. [Overview](#overview)
-2. [Features](#features)
-3. [Architecture](#architecture)
-4. [Installation](#installation)
-5. [Configuration](#configuration)
-6. [Usage](#usage)
-7. [Project Structure](#project-structure)
-8. [Database Schema](#database-schema)
-9. [API Documentation](#api-documentation)
-10. [UI/UX Design](#uiux-design)
-11. [Security](#security)
-12. [Testing](#testing)
-13. [Deployment](#deployment)
-14. [Contributing](#contributing)
-15. [License](#license)
+2. [Screenshots](#screenshots)
+3. [Features](#features)
+4. [Architecture](#architecture)
+5. [Installation](#installation)
+6. [Configuration](#configuration)
+7. [Usage](#usage)
+8. [Project Structure](#project-structure)
+9. [Database Schema](#database-schema)
+10. [API Documentation](#api-documentation)
+11. [UI/UX Design](#uiux-design)
+12. [Security](#security)
+13. [Testing](#testing)
+14. [Deployment](#deployment)
+15. [Contributing](#contributing)
+16. [License](#license)
 
 ## Overview
 
@@ -31,6 +32,46 @@ The Doctor Appointment App is a modern, cross-platform mobile application built 
 - **Modern UI**: Neumorphic design with smooth animations
 - **Secure authentication**: Firebase Authentication with email/password
 - **Scalable architecture**: Clean code structure with proper separation of concerns
+
+## Screenshots
+
+### App Flow Overview
+
+<div align="center">
+
+| Splash Screen | Login Screen | Signup Screen |
+|:---:|:---:|:---:|
+| ![Splash Screen](screenshots/splash_screen.png) | ![Login Screen](screenshots/login_screen.png) | ![Signup Screen](screenshots/signup_screen.png) |
+
+</div>
+
+### Patient Interface
+
+<div align="center">
+
+| Patient Dashboard | Book Appointment | Appointment History |
+|:---:|:---:|:---:|
+| ![Patient Dashboard](screenshots/patient_dashboard.png) | ![Book Appointment](screenshots/book_appointment.png) | ![Appointment History](screenshots/appointment_history.png) |
+
+</div>
+
+### Doctor Interface
+
+<div align="center">
+
+| Doctor Dashboard | Slot Management |
+|:---:|:---:|
+| ![Doctor Dashboard](screenshots/doctor_dashboard.png) | ![Slot Management](screenshots/slot_management.png) |
+
+</div>
+
+### Key Features Showcase
+
+- **🎨 Neumorphic Design**: Modern, elegant UI with soft shadows and depth
+- **📱 Responsive Layout**: Optimized for all screen sizes and orientations
+- **🔄 Real-time Updates**: Live synchronization of appointments and slots
+- **🔐 Secure Authentication**: Role-based access with Firebase Authentication
+- **📊 Dashboard Analytics**: Quick overview of appointments and statistics
 
 ## Features
 
