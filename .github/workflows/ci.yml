@@ -1,0 +1,115 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Setup Flutter
+      uses: subosito/flutter-action@v2
+      with:
+        flutter-version: '3.7.0'
+        channel: 'stable'
+        
+    - name: Get dependencies
+      run: flutter pub get
+      
+    - name: Verify formatting
+      run: dart format --output=none --set-exit-if-changed .
+      
+    - name: Analyze project source
+      run: flutter analyze
+      
+    - name: Run tests
+      run: flutter test
+      
+  build-android:
+    name: Build Android
+    runs-on: ubuntu-latest
+    needs: test
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Setup Flutter
+      uses: subosito/flutter-action@v2
+      with:
+        flutter-version: '3.7.0'
+        channel: 'stable'
+        
+    - name: Get dependencies
+      run: flutter pub get
+      
+    - name: Build APK
+      run: flutter build apk --release
+      
+    - name: Upload APK
+      uses: actions/upload-artifact@v3
+      with:
+        name: release-apk
+        path: build/app/outputs/flutter-apk/app-release.apk
+        
+  build-web:
+    name: Build Web
+    runs-on: ubuntu-latest
+    needs: test
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Setup Flutter
+      uses: subosito/flutter-action@v2
+      with:
+        flutter-version: '3.7.0'
+        channel: 'stable'
+        
+    - name: Get dependencies
+      run: flutter pub get
+      
+    - name: Build Web
+      run: flutter build web --release
+      
+    - name: Upload Web Build
+      uses: actions/upload-artifact@v3
+      with:
+        name: web-build
+        path: build/web/
+        
+  build-windows:
+    name: Build Windows
+    runs-on: windows-latest
+    needs: test
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Setup Flutter
+      uses: subosito/flutter-action@v2
+      with:
+        flutter-version: '3.7.0'
+        channel: 'stable'
+        
+    - name: Get dependencies
+      run: flutter pub get
+      
+    - name: Build Windows
+      run: flutter build windows --release
+      
+    - name: Upload Windows Build
+      uses: actions/upload-artifact@v3
+      with:
+        name: windows-build
+        path: build/windows/x64/runner/Release/
