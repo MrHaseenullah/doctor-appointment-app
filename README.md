@@ -1193,21 +1193,17 @@ SOFTWARE.
 ## Support and Contact
 
 ### Technical Support
-- **Email**: support@doctorappointmentapp.com
-- **Documentation**: [GitHub Wiki](https://github.com/your-username/doctor_appointment_app/wiki)
-- **Issues**: [GitHub Issues](https://github.com/your-username/doctor_appointment_app/issues)
+- **Email**: mrhaseenullah1@gmail.com
+- **Documentation**: [GitHub Wiki](https://github.com/MrHaseenullah/doctor_appointment_app/wiki)
+- **Issues**: [GitHub Issues](https://github.com/MrHaseenullah/doctor_appointment_app/issues)
 
-### Community
-- **Discussions**: [GitHub Discussions](https://github.com/your-username/doctor_appointment_app/discussions)
-- **Discord**: [Join our Discord server](https://discord.gg/your-invite)
-- **Twitter**: [@DoctorAppointmentApp](https://twitter.com/doctorappointmentapp)
 
 ### Maintainers
-- **Lead Developer**: Your Name (@yourusername)
-- **UI/UX Designer**: Designer Name (@designerusername)
-- **DevOps Engineer**: DevOps Name (@devopsusername)
+- **Lead Developer**: Haseen ullah
+- **UI/UX Designer**: Haseen ullah
+- **DevOps Engineer**: Haseen ullah
 
 ---
 
-*Last updated: December 2024*
+*Last updated: June 2025*
 *Version: 1.0.0*
