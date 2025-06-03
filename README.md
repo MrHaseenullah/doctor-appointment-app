@@ -59,9 +59,9 @@ The Doctor Appointment App is a modern, cross-platform mobile application built 
 
 <div align="center">
 
-| Patient Dashboard | Slot Management |
+| Patient Dashboard | History Dashboard |
 |:---:|:---:|
-| ![Doctor Dashboard](screenshots/doctor_dashboard.png) | ![Slot Management](screenshots/slot_management.png) |
+| ![Doctor Dashboard](screenshots/doctor_dashboard.png) | ![Slot Management](screenshots/history.png) |
 
 </div>
 
